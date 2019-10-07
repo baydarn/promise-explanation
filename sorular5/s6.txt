@@ -1,0 +1,24 @@
+* Generator'lar ve iterator'lar ES6 ile gelmiştir.
+
+* Array'ler aslında birer iterator'dır.
+
+* Generator'lar iterator oluşturmak için kullanlır.
+
+* Generator function'lar function* şeklinde başlar.
+
+* Örnek:
+    function* makeRangeIterator(start = 0, end = 100, step = 1) {
+        for (let i = start; i < end; i += step) {
+            yield i;
+        }
+    }
+
+    let it = makeRangeIterator(1, 10, 2);
+
+    let result = it.next();
+    while (!result.done) {
+        console.log(result.value); // 1 3 5 7 9
+        result = it.next();
+    }
+
+    console.log("Iterated over sequence of size: ", result.value); // [5 numbers returned, that took interval in between: 0 to 10]

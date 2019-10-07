@@ -1,0 +1,26 @@
+* Callback fonksiyonlar yardımıyla promise'lerden önce
+    asenkron işlemler yapılmaktaydı.
+
+* Örneğin bir butona tıklandığında DOM click fonksiyonu
+    çalışırdı. Bu fonksiyon aslında click event'ine 
+    verilmiş bir callback idi.
+
+* Callbacklerde karşılaşılan bir problem "Callback Hell"
+    adı verilen sorundu:
+    window.addEventListener('load', () => {
+        document.getElementById('button').addEventListener('click', () => {
+            setTimeout(() => {
+                items.forEach(item => {
+                //your code here
+            })
+         }, 2000)
+     })
+    })
+    Bu sorun yüzünden farklı bir yola gitmek gerekiyordu ve
+    promise'ler bu ihtiyaca cevap vermek için doğdu.
+
+* jQuery'deki deferred objesi asenkron çalışmak için kullanılırdı.
+
+* Q, when, WinJS, RSVP.js gibi library'ler, promiseler ES6'da
+    promiseler resmi olarak eklenmeden önce promise mantığını
+    desteklemekteydi.

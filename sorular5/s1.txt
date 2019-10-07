@@ -1,0 +1,33 @@
+* En başta callback fonksiyonlar vardı.
+    Bu fonksiyonlar, başka bir fonksiyona parametre olarak verilirdi
+    ve işlem bittiğinde çağrılırdı. Örnek:
+
+    $.get("example.php", function(response) {
+        data = response;
+    });
+
+    setTimeout örneği: 
+
+    setTimeout(function() {
+        console.log("en az 1 saniye geçti");
+    }, 1000);
+
+* İlerleyen zamanlarda async.js gibi library'ler yardımıyla
+    asenkron fonksiyonlar javascript'e eklenmeye başladı.
+    https://github.com/caolan/async
+
+* jQuery'deki deferred objesi ile de asenkron çalışmak mümkündü.
+    Ancak Promises/A+ ile uyumlu olmadığı için
+    kullanması sorunluydu.
+
+* Promise'ler 2015'te ES6 ile  resmi olarak geldi.
+    Bundan önce de Q, when, WinJS, RSVP.js gibi library'ler
+    bu işlemi yapıyordu.
+    Bu yapı ile, bir fonksiyon bir işi yapacağının "sözünü verirdi".
+    İşlem başarılı sonuçlanırsa "resolve" ile sonucu iletir.
+    İşlem sırasında hata meydana gelirse "reject" olur.
+
+* Async fonksiyonlar ES2017'de gelmiş bir özelliktir.
+    Bu yapının arkasında aslında yine promise'ler vardır.
+    await anahtar sözcüğüyle bir işlemin
+    çalışmasının bitiminde bir kod çalıştırılaibilir.
